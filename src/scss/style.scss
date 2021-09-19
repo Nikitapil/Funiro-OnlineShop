@@ -1,0 +1,18 @@
+@import "mixins.scss";
+@import "fonts.scss";
+@import "nullstyle.scss";
+@import "header.scss";
+@import "footer.scss";
+body {
+    font-family: Gilroy;
+    font-size: 16px;
+    display: flex;
+    flex-direction: column;
+    /* background-color: yellow; */
+}
+main {
+    flex: 1 1 auto;
+}
+.hidden {
+    display: none;
+}
