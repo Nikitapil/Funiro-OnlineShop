@@ -1,3 +1,4 @@
+
 document.addEventListener("click", documentactions)
 function documentactions (event) {
 let targetelement = event.target

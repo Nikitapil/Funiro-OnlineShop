@@ -85,6 +85,7 @@ gap: 16px;
             &.activefmenu {
                 display: flex;
                 gap: 10px;
+                @include openerY(-80%, 0, 0.4s)
             }
         }
         .footer__menu__btn {
@@ -98,9 +99,11 @@ gap: 16px;
                 width: 20px;
                 height: 20px;
                 bottom: 0;
-                left: 0
+                left: 0;
+                transition: 0.4s;
             }
             &.activefmenu::before {
+                transition: 0.4s;
                 transform: rotate(180deg);
                 top: 0
             }

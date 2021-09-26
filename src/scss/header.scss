@@ -7,7 +7,8 @@
         max-width: 100%;
         height: 125px;
         padding: 40px 0;
-     background: #F9F1E7;
+     background: linear-gradient(to right, #F9F1E7 65%, #FCF8F3 65%);
+     position: relative;
     }
     .container {
         max-width: 1240px;
@@ -159,7 +160,7 @@
         &.active__search {
             display: flex;
             transform: translateY(100px);
-            z-index: 5;
+            z-index: 10;
             width: 95%;
             position: absolute;
             left: 0;

@@ -69,3 +69,10 @@
         }
       }
 }
+// =============================================================================
+// Adaptive-value
+// =============================================================================
+@mixin adaptive-value($property, $startSize, $minSize, $maxwidth) {
+	$addSize: $startSize - $minSize;
+	#{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxwidth - 320}));
+}
