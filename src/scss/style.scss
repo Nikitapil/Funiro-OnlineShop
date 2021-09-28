@@ -3,6 +3,7 @@
 @import "nullstyle.scss";
 @import "header.scss";
 @import "footer.scss";
+@import "swiper.scss";
 body {
   font-family: Gilroy;
   font-size: 16px;
@@ -27,6 +28,8 @@ main {
 }
 .main__slider__container {
   display: flex;
+  min-width: 0;
+  position: relative;
 }
 .main__slider__main-content {
   flex: 0 0 auto;
@@ -84,10 +87,12 @@ main {
   color: #ffffff;
 }
 .main__slider__slider {
-  display: flex;
-  flex-direction: column;
+  /* display: flex;
+  flex-direction: column; */
   align-self: flex-end;
   align-items: flex-end;
+  min-width: 0;
+  overflow: visible;
 }
 .main__slider__controlls {
   display: flex;
@@ -99,6 +104,7 @@ main {
 }
 .main__slider__dotts {
   flex: 1 1 auto;
+  display: flex;
 }
 .main__slider__nextbtn,
 .main__slider__prevbtn {
@@ -122,9 +128,7 @@ main {
     transform: rotate(-180deg);
   }
 }
-.main__slider__slide {
-  position: relative;
-}
+
 .main__slide__content {
   background: rgba(229, 229, 229, 0.8);
   padding: 24px;
@@ -165,4 +169,21 @@ main {
   }
   line-height: 150%;
   color: #3a3a3a;
+}
+
+.swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  background-color: rgb(245, 205, 176);
+  display: block;
+  margin: 0 5px;
+  cursor: pointer;
+}
+.main__slider__body {
+  overflow: visible;
+  width: 934px;
+  @media (max-width: 1240px) {
+    @include adaptive-value(width, 934, 290, 1240);
+  }
+  margin-left: -300px;
 }

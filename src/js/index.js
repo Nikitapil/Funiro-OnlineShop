@@ -23,3 +23,24 @@ if (targetelement.classList.contains("footer__menu__btn")) {
     targetelement.nextElementSibling.classList.toggle("activefmenu");
 }
 }
+
+const swiper = new Swiper('.swiper', {
+    observer: true,
+    observeParents: true,
+    slidesPerView: 1,
+    spaceBetween: 32,
+    watchOverflow: true,
+    speed: 800,
+    loop: true,
+    loopAdditionalSlides:5,
+    parallax: true,
+    pagination: {
+        el: ".main__slider__dotts",
+        clickable: true,
+    },
+    navigation: {
+        nextEl: ".main__slider__nextbtn",
+        prevEl: ".main__slider__prevbtn"
+    }
+});
+  console.log(swiper);
