@@ -59,8 +59,8 @@
       }
 }
 @mixin openerX($translatestart, $translateEnd, $duration) {
-    animation: opener $duration;
-    @keyframes opener {
+    animation: openerX $duration;
+    @keyframes openerX {
         0% {
           transform: translateX($translatestart) scaleY(0);
         }
