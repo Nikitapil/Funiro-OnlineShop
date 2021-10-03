@@ -10,6 +10,7 @@ let path = {
     favicon: project_folder + "/",
     fonts: project_folder + "/fonts/",
     audio: project_folder + "/audio/",
+    json: project_folder + "/json/",
   },
   src: {
     html: [source_folder + "/*.html", "!" + source_folder + "/_*.html"],
@@ -19,6 +20,7 @@ let path = {
     favicon: source_folder + "/*.png",
     fonts: source_folder + "/fonts/*.ttf",
     audio: [source_folder + "/audio/*.{mp3,ogg,mp4}"],
+    json: source_folder + "/json/*.json",
   },
   watch: {
     html: source_folder + "/**/*.html",
@@ -26,6 +28,7 @@ let path = {
     js: source_folder + "/js/**/*.js",
     img: source_folder + "/img/**/*.{jpg,png,svg,gif,ico,webp}",
     audio: source_folder + "/audio/*.{mp3,ogg}",
+    json: source_folder + "/json/*.json",
   },
   clean: "./" + project_folder + "/",
 };
@@ -154,6 +157,12 @@ function audio () {
       .pipe(browsersync.stream())
   );
 }
+function json () {
+  return (src(path.src.json)
+      .pipe(dest(path.build.json))
+      .pipe(browsersync.stream())
+  );
+}
 function fonts(params) {
   src(path.src.fonts)
   .pipe(ttf2woff())
@@ -195,11 +204,14 @@ function watchFiles(params) {
   gulp.watch([path.watch.js], js);
   gulp.watch([path.watch.img], images);
   gulp.watch([path.watch.audio], audio);
+  gulp.watch([path.watch.json], json);
 }
 
-let build = gulp.series(clean, gulp.parallel(js, css, html, images, fonts, favicon, audio));
+let build = gulp.series(clean, gulp.parallel(js, css, html, images, fonts, favicon, audio,json));
 let watch = gulp.parallel(build, watchFiles, browserSync);
 
+
+exports.json = json;
 exports.audio = audio;
 exports.favicon = favicon;
 exports.html = html;
