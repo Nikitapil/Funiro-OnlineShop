@@ -82,7 +82,7 @@ function html() {
   return (
     src(path.src.html)
       .pipe(fileinclude())
-      .pipe(webphtml())
+      /* .pipe(webphtml()) */
       .pipe(prettyHtml({
       unformatted: ['code', 'pre', 'em', 'strong', 'span', 'i', 'b', 'br'],
       indent_inner_html: false,
@@ -127,11 +127,11 @@ function clean(params) {
 
 function images() {
   return src(path.src.img)
-    .pipe(
+    /* .pipe(
       webp({
         quality: 70,
       })
-    )
+    ) */
     .pipe(dest(path.build.img))
     .pipe(src(path.src.img))
     .pipe(

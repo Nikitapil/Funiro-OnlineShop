@@ -48,7 +48,7 @@ mainSlider.addEventListener("mouseleave", function(){
     swiper.autoplay.start()
 })
 //Главный слайдер
-const swiper = new Swiper('.swiper', {
+const swiper = new Swiper('.main__slider__body', {
     observer: true,
     effect: "coverflow",
     observeParents: true,
@@ -74,6 +74,31 @@ const swiper = new Swiper('.swiper', {
     navigation: {
         nextEl: ".main__slider__nextbtn",
         prevEl: ".main__slider__prevbtn"
+    }
+});
+const swiper2 = new Swiper('.rooms__slider__body', {
+    observer: true,
+    effect: "slide",
+    observeParents: true,
+    slidesPerView: "auto",
+    spaceBetween: 24,
+    watchOverflow: true,
+    speed: 800,
+    loop: true,
+    loopAdditionalSlides:5,
+    parallax: true,
+    touchRatio: 2,
+    keyboard: {
+        enabled: true,
+        onlyInViewport: true,
+    },
+    pagination: {
+        el: ".rooms__slider__dotts",
+        clickable: true,
+    },
+    navigation: {
+        nextEl: ".rooms__slider__nextbtn",
+        prevEl: ".rooms__slider__prevbtn"
     }
 });
 // подгрузка продуктов
