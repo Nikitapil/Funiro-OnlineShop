@@ -101,6 +101,46 @@ const swiper2 = new Swiper('.rooms__slider__body', {
         prevEl: ".rooms__slider__prevbtn"
     }
 });
+
+const swiperTips = new Swiper('.tips__slider__body', {
+    observer: true,
+    effect: "slide",
+    observeParents: true,
+    slidesPerView: 3,
+    spaceBetween: 32,
+    watchOverflow: true,
+    speed: 800,
+    loop: true,
+    loopAdditionalSlides:5,
+    parallax: true,
+    touchRatio: 2,
+    keyboard: {
+        enabled: true,
+        onlyInViewport: true,
+    },
+    pagination: {
+        el: ".tips__slider__dotts",
+        clickable: true,
+    },
+    navigation: {
+        nextEl: ".tips__slider__nextbtn",
+        prevEl: ".tips__slider__prevbtn"
+    },
+    breakpoints: {
+        320: {
+            slidesPerView: 1.1,
+            spaceBetween: 15,
+        },
+        768: {
+            slidesPerView: 2,
+            spaceBetween: 40,
+        },
+        992: {
+            slidesPerView: 3,
+            spaceBetween: 35,
+        }
+    }
+});
 // подгрузка продуктов
 let productsContainer = document.querySelector('.products')
 async function getProducts () {
@@ -235,6 +275,42 @@ function cartCounterEdit () {
         }
     }
 }
+// Galery scroll
+let isMobile = {
+    Android: function () {
+        return navigator.userAgent.match(/Android/i);
+    },
+    BlackBerry: function () {
+        return navigator.userAgent.match(/BlackBerry/i);
+    },
+    iOS: function () {
+        return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+    },
+    Opera: function () {
+        return navigator.userAgent.match(/Opera Mini/i);
+    },
+    Windows: function () {
+        return navigator.userAgent.match(/IEMobile/i);
+    },
+    any: function () {
+        return (
+                isMobile.Android()
+                || isMobile.BlackBerry()
+                || isMobile.iOS()
+                || isMobile.Opera()
+                || isMobile.Windows()
+                );
+    }
+};
 
-
+const galary = document.querySelector('.galary__body')
+galary.addEventListener("mousemove", function (e) {
+    if (!isMobile.any()) {
+        let galaryScroll = e.pageX - window.innerWidth/2
+        galary.scrollBy({
+            top: 0,
+            left: galaryScroll,
+          });
+    }
+})
 

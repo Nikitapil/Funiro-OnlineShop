@@ -623,7 +623,7 @@ transition: 0.5s;
   background: #4b3324;
 }
 }
-.rooms__slider__arrows {
+.rooms__slider__arrows, .tips__slider__arrows {
   position: absolute;
   width: 100%;
   top: 50%;
@@ -634,7 +634,7 @@ transition: 0.5s;
   justify-content: space-between;
   pointer-events: none;
 }
-.rooms__slider__prevbtn, .rooms__slider__nextbtn {
+.rooms__slider__prevbtn, .rooms__slider__nextbtn, .tips__slider__prevbtn, .tips__slider__nextbtn {
   width: 48px;
   height: 48px;
   border: none;
@@ -649,10 +649,10 @@ transition: 0.5s;
     transform: none;
   }
 }
-.rooms__slider__nextbtn {
+.rooms__slider__nextbtn, .tips__slider__nextbtn {
   transform: rotate(-90deg);
 }
-.rooms__slider__prevbtn:hover {
+.rooms__slider__prevbtn:hover, .tips__slider__prevbtn:hover  {
   transform: rotate(180deg);
 }
 .rooms__slider__dotts {
@@ -668,4 +668,99 @@ transition: 0.5s;
   @media (max-width: 635px) {
     justify-content: center;
   }
+}
+// tips slider
+.tips__container {
+  padding: 44px 0;
+}
+.tips__title {
+  margin-bottom: 32px;
+  @media (max-width: 1240px) {
+    @include adaptive-value(margin-bottom, 32, 20, 1240);
+  }
+}
+.tips__slide {
+  transition: 0.3s;
+  &:hover {
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  }
+  max-width: 391px;
+}
+.tips__slide__img {
+  width: 100%;
+  img {
+    max-width: 100%;
+  }
+}
+.tips__slide__content {
+  margin: 16px;
+}
+.tips__content__title {
+font-weight: 600;
+font-size: 24px;
+line-height: 120%;
+color: #3A3A3A;
+text-decoration: none;
+transition: 0.5s;
+margin-bottom: 8px;
+&:hover {
+  color:#E89F71;
+}
+}
+.tips__content__date {
+font-size: 14px;
+line-height: 150%;
+color: #898989;
+}
+.tips__slider {
+  position: relative;
+}
+.tips__slider__dotts {
+  display: flex;
+  justify-content: center;
+}
+.galary__label {
+font-weight: 600;
+font-size: 20px;
+line-height: 150%;
+text-align: center;
+color: #616161;
+}
+.galary__body {
+  display: grid;
+  grid-auto-flow: column;
+  align-items: center;
+  gap: 16px;
+  overflow: auto;
+  @media (any-hover:none) {
+    overflow: auto;
+  }
+}
+.galary__item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  &:first-child {
+    justify-content: flex-end;
+  }
+  img {
+    @media (any-hover:hover) {
+    filter: grayscale(0.8);
+    transition: 0.6s;
+    &:hover {
+      filter: grayscale(0);
+    }
+  }
+  }
+}
+.galary__item__top {
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+.galary__item__bottom {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
 }
