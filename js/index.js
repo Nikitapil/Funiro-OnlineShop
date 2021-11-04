@@ -144,7 +144,7 @@ const swiperTips = new Swiper('.tips__slider__body', {
 // подгрузка продуктов
 let productsContainer = document.querySelector('.products')
 async function getProducts () {
-    const file = "../json/products.json"
+    const file = "./json/products.json"
     let response = await fetch(file, {
         method: "GET"
     })
